@@ -5,6 +5,7 @@ attr_accessor :name, :artist, :genre
 
   def initialize(name, artist = nil, genre = nil)
     @name = name
+    self.artist = artist if artist 
   end
 
   def save
@@ -23,13 +24,6 @@ attr_accessor :name, :artist, :genre
     song = Song.new(name, artist, genre)
     song.save
     song
-  end
-
-  def add_song(song, artist = nil)
-    @songs << song unless songs.include?(song)
-    if song.artist == nil
-      song.artist = self
-    end
   end
 
   def artist=(artist)
