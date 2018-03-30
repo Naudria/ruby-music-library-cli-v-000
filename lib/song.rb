@@ -25,6 +25,13 @@ attr_accessor :name, :artist, :genre
     song
   end
 
+  def add_song(song, artist = nil)
+    @songs << song unless songs.include?(song)
+    if song.artist == nil
+      song.artist = self
+    end
+  end
+
   def artist=(artist)
       @artist = (artist)
       artist.add_song(self)
