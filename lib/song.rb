@@ -37,4 +37,7 @@ attr_accessor :name, :artist, :genre
       genre.songs << self unless genre.songs.include?(self)
   end
 
+  def self.find_by_name(name)
+    self.all.detect{|s| s.name == name}
+  end
 end
